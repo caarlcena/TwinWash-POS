@@ -1,0 +1,628 @@
+/* =========================
+   RESET + BASE
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #eef3f9;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+.app-container {
+  max-width: 2000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* =========================
+   HEADER
+========================= */
+.pos-header {
+  display: flex;
+  flex-direction: column; /* 🔥 stack logo + title */
+  align-items: center; /* 🔥 center horizontally */
+  justify-content: center;
+  text-align: center; /* 🔥 center text */
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.logo {
+  width: 400px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.pos-header h2 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #1e3a8a;
+}
+
+/* =========================
+   CARD (MAIN BOXES)
+========================= */
+.card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+/* =========================
+   DATE SECTION
+========================= */
+.date-bar {
+  margin-bottom: 15px;
+}
+
+.date-bar h3 {
+  margin-bottom: 10px;
+}
+
+.date-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* =========================
+   INPUTS (FIX OVERFLOW)
+========================= */
+.input-large,
+.search-bar input,
+input[type="date"] {
+  width: 100%;
+  max-width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #dbe2ea;
+  background: #f9fbff;
+  font-size: 14px;
+  outline: none;
+}
+
+/* spacing fix */
+.customer-input {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* focus effect */
+input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* =========================
+   MAIN LAYOUT (FIX OVERLAP)
+========================= */
+.main-layout {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.left-panel {
+  flex: 1;
+  min-width: 300px;
+
+  display: flex;
+  flex-direction: column;
+
+  height: fit-content;
+}
+
+.right-panel {
+  flex: 1.5;
+  min-width: 400px;
+}
+
+/* =========================
+   COUNTERS
+========================= */
+.counter-row {
+  display: grid;
+  grid-template-columns: 1fr 140px; /* label | controls */
+  align-items: center;
+
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background: #f9fbff;
+  border: 1px solid #e5eaf2;
+}
+
+.counter-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-small {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.counter-value {
+  font-weight: 700;
+  min-width: 30px;
+  text-align: center;
+}
+
+/* =========================
+   TOTAL CIRCLE
+========================= */
+.total-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.total-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #60a5fa, #2563eb);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.total-label {
+  font-size: 11px;
+}
+
+.total-amount {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.grand-total-table {
+  width: 100%;
+  margin-top: 6px;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.grand-total-table td {
+  padding: 2px 3px;
+}
+.grand-total-table td:last-child {
+  text-align: right !important; /* 🔥 forces amount to right */
+  font-weight: bold;
+}
+.receipt .terms {
+  margin-top: 8px;
+  font-size: 9px;
+  line-height: 1.3;
+  text-align: justify; /* 🔥 makes it formal */
+}
+
+.receipt .terms {
+  margin-top: 8px;
+  font-size: 9px;
+  line-height: 1.3;
+  text-align: justify;
+}
+
+.receipt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.receipt-business-info {
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.receipt-logo-wrap {
+  text-align: right;
+}
+
+.receipt-logo {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.receipt-customer-table {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.receipt-items-table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+.receipt-item-column {
+  width: 50%;
+}
+
+.receipt-addons-header {
+  background: #ddd;
+  font-weight: bold;
+}
+
+.grand-total-label {
+  text-align: right !important;
+  font-weight: bold;
+}
+
+.grand-total-value {
+  text-align: right !important;
+  font-weight: bold;
+  font-size: 13px !important;
+}
+
+.receipt-signatures {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.receipt-signature-block {
+  flex: 1;
+  text-align: center;
+}
+
+.receipt-signature-line {
+  border-top: 1px solid #000;
+  padding-top: 6px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-success {
+  background: #f1f5f9;
+  color: #1e3a8a;
+  border: 1px solid #cbd5e1;
+}
+
+/* =========================
+   BUTTON INTERACTIONS (UPGRADED)
+========================= */
+
+/* smooth animation */
+button {
+  transition: all 0.2s ease;
+}
+
+/* hover = lift effect */
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* click effect */
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   BUTTON COLOR DEPTH (OPTIONAL BUT CLEAN)
+========================= */
+
+/* primary button */
+.btn-primary:hover {
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+/* secondary button */
+.btn-success:hover {
+  box-shadow: 0 6px 16px rgba(30, 58, 138, 0.2);
+}
+
+/* small + counter buttons */
+.btn-small:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+}
+/* ACTION BUTTONS (FIXED) */
+.action-buttons {
+  display: flex;
+  gap: 12px; /* spacing between buttons */
+  margin-top: 15px;
+}
+
+/* MAKE BOTH BUTTONS SAME SIZE */
+.action-buttons button {
+  flex: 1; /* equal width */
+  height: 48px; /* consistent height */
+  font-size: 14px;
+}
+
+/* OPTIONAL: make icons aligned nicely */
+.action-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+/* ACTION BUTTONS INSIDE TABLE */
+td:last-child {
+  white-space: nowrap;
+}
+
+td:last-child button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3px;
+  vertical-align: middle;
+}
+
+/* TABLE BUTTON HOVER (SAFE GENERIC) */
+td button:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   SEARCH BAR
+========================= */
+.search-bar {
+  margin-bottom: 10px;
+}
+
+/* =========================
+   TABLE (FIX WIDTH + NO OVERFLOW)
+========================= */
+/* =========================
+   TABLE CONTAINER
+========================= */
+.table-container {
+  width: 100%;
+  max-height: 420px;
+  overflow-y: auto;
+  overflow-x: hidden; /* disable horizontal scroll */
+  border-radius: 1px;
+}
+
+/* =========================
+   TABLE
+========================= */
+table {
+  width: 100%;
+  table-layout: fixed; /* keeps table fixed horizontally */
+  border-collapse: collapse;
+  background: #fff;
+}
+
+table thead th {
+  position: sticky;
+  top: 0;
+  background: #f1f5f9;
+  z-index: 2;
+}
+
+th,
+td {
+  padding: 10px 8px;
+  overflow: hidden;
+}
+
+/* =========================
+   COLUMN WIDTHS
+========================= */
+th:nth-child(1),
+td:nth-child(1) {
+  width: 15%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 14%;
+  text-align: center;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 14%;
+  text-align: center;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+  width: 14%;
+  text-align: center;
+}
+
+th:nth-child(5),
+td:nth-child(5) {
+  width: 35%;
+}
+td:nth-child(3),
+td:nth-child(4) {
+  white-space: nowrap; /* 🔥 keeps Paid / Unpaid visible */
+  font-weight: 100;
+}
+
+td:nth-child(1) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================
+   LONG CUSTOMER NAME
+========================= */
+td:nth-child(1) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+.table-action-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 4px;
+  width: 100%;
+}
+
+.table-action-buttons button {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 7px 6px;
+  font-size: 11px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================
+   RECEIPT ALIGNMENT FIX
+========================= */
+.receipt table th,
+.receipt table td {
+  text-align: left !important;
+  vertical-align: top;
+}
+
+/* SMOOTH TRANSITION */
+table tr {
+  transition: all 0.2s ease;
+}
+
+/* ROW HOVER EFFECT */
+table tbody tr:hover {
+  background: #f1f5ff; /* soft blue highlight */
+  transform: scale(1.01); /* slight zoom */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+/* OPTIONAL: HOVER TEXT EMPHASIS */
+table tbody tr:hover td {
+  font-weight: 600;
+}
+
+/* EXCLUDE RECEIPT FROM HOVER EFFECT */
+.receipt table tr:hover {
+  background: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: default;
+}
+
+/* =========================
+   RECEIPT (DO NOT TOUCH)
+========================= */
+.receipt {
+  position: absolute;
+  left: -9999px;
+
+  width: 105mm; /* REAL RECEIPT WIDTH */
+  min-height: 297mm; /* FULL LENGTH */
+
+  background: #fff;
+  padding: 6px;
+
+  font-family: Arial !important;
+  font-size: 10px !important;
+  color: #000;
+}
+
+.receipt table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1px !important;
+}
+
+.receipt th,
+.receipt td {
+  padding: 1.5px;
+  font-size: 11px !important;
+  border: 1px solid #000;
+}
+
+/* =========================
+   PRINT ONLY RECEIPT
+========================= */
+@media print {
+  @page {
+    size: 105mm 297mm;
+    margin: 0;
+  }
+
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  #receipt,
+  #receipt * {
+    visibility: visible;
+  }
+
+  #receipt {
+    position: absolute;
+    left: 0 !important; /* 🔥 force left alignment */
+    top: 0 !important;
+
+    width: 105mm;
+    min-height: 297mm;
+
+    margin: 0 !important;
+    transform: none !important;
+  }
+}
+@media print {
+  body {
+    display: block !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
+}
+/* =========================
+   MOBILE FIX
+========================= */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+  }
+}
