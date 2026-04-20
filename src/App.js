@@ -17,7 +17,13 @@ import {
   doc,
   deleteDoc,
 } from "firebase/firestore";
-
+const PRICES = {
+  wash: 70,
+  dry: 70,
+  detergent: 18,
+  downy: 8,
+  zonrox: 6,
+};
 export default function App() {
   const customerInputRef = useRef(null);
 
@@ -40,14 +46,6 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [paymentFilter, setPaymentFilter] = useState("All");
   const [claimFilter, setClaimFilter] = useState("All");
-
-  const prices = {
-    wash: 70,
-    dry: 70,
-    detergent: 18,
-    downy: 8,
-    zonrox: 6,
-  };
 
   const getYesterday = () => {
     const d = new Date();
@@ -79,11 +77,11 @@ export default function App() {
 
   const calculateTotal = useCallback(() => {
     return (
-      wash * prices.wash +
-      dry * prices.dry +
-      detergent * prices.detergent +
-      downy * prices.downy +
-      zonrox * prices.zonrox
+      wash * PRICES.wash +
+      dry * PRICES.dry +
+      detergent * PRICES.detergent +
+      downy * PRICES.downy +
+      zonrox * PRICES.zonrox
     );
   }, [wash, dry, detergent, downy, zonrox]);
 
